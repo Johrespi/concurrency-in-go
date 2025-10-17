@@ -10,10 +10,10 @@ func main() {
 
 	for _, salutation := range []string{"Hello", "Hola", "Bonjour"} {
 		wg.Add(1)
-		go func() {
+		go func(salutation string) {
 			defer wg.Done()
 			fmt.Println(salutation)
-		}()
+		}(salutation)
 	}
 	wg.Wait()
 
