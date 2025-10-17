@@ -6,6 +6,11 @@ import (
 	"time"
 )
 
+func task(id int, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Printf("Hello from %v\n", id)
+}
+
 func main() {
 	var wg sync.WaitGroup
 
@@ -26,5 +31,12 @@ func main() {
 
 	wg.Wait()
 	fmt.Println("All goroutines have finished execution.")
+
+	wg.Add(5)
+	for i := range 5 {
+		go task(i+1, &wg)
+	}
+
+	wg.Wait()
 
 }
