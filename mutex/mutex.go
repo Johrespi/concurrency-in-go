@@ -41,5 +41,5 @@ func main() {
 	}
 
 	wg.Wait()
-	fmt.Printf("Final 	counter: %d", counter)
+	fmt.Printf("Final counter: %d", counter)
 }
