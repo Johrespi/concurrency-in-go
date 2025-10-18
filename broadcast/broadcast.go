@@ -14,13 +14,13 @@ func main() {
 		Clicked: sync.NewCond(&sync.Mutex{}),
 	}
 
-	var ready sync.WaitGroup
+	var ready sync.WaitGroup // to ensure all goroutines are ready before broadcasting
 
 	subscribe := func(c *sync.Cond, fn func()) {
-		ready.Add(1)
+		ready.Add(1) // indicate a new goroutine is being set up
 		go func() {
 			c.L.Lock()
-			ready.Done()
+			ready.Done() // indicate this goroutine is ready to receive broadcasts, the resource now is locked
 			defer c.L.Unlock()
 			c.Wait()
 			fn()
