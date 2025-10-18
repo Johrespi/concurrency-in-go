@@ -1,4 +1,4 @@
-### Concurrency in Go
+## Concurrency in Go
 
 This repository contains examples of concurrency patterns in Go. It covers goroutines, channels, and other concurrency primitives provided by the Go programming language.
 
@@ -10,5 +10,5 @@ Goroutines are lightweight threads managed by the Go runtime. They are created u
 
 They follow the fork-join model, where a goroutine can spawn other goroutines and wait for them to complete before proceeding. This model allows for efficient use of system resources and enables developers to write concurrent programs without worrying about low-level thread management.
 
-### Author
+## Author
 Johann Ramírez
