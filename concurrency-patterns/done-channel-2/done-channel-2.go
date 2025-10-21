@@ -11,7 +11,7 @@ func main() {
 	newRandStream := func(done <-chan any) <-chan int {
 		randStream := make(chan int)
 		go func() {
-			defer fmt.Println("Goroutine is done...")
+			defer fmt.Println("newRandStream closure exited.")
 			defer close(randStream)
 			for {
 				select {
